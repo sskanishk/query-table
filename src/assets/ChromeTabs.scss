@@ -1,0 +1,45 @@
+.tabs {
+  display: flex;
+  background-color: aqua;
+  width: 100%;
+
+  .colorTab {
+    background-color: gold !important;
+  }
+
+  .tab {
+    display: flex;
+    margin: 2px 5px;
+    padding: 2px 10px;
+    background-color: bisque;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}
+
+.addtabs {
+  background-color: greenyellow;
+  display: flex;
+  margin: 2px 5px;
+}
+
+.headers {
+  display: flex;
+  width: 100%;
+  // justify-content: space-between;
+}
+
+.column {
+  width: fit-content;
+}
+
+table {
+  font-family: verdana, arial, sans-serif;
+  font-size: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+tr, th, td {
+  border: 0.5px solid gray;
+}
