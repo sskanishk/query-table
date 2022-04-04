@@ -28,7 +28,7 @@ serve -s build
 ```
 
 ## Feature
-1. Double click on tab to edit heading of the tab.
+1. Double click on tab to edit heading of the tab and press enter to save.
 2. Click on header name of column, to sort the table [ asc, desc, normal ]
 3. used [react-fluid-table](https://github.com/mckervinc/react-fluid-table) to build skeleton of the table which is powerd by [react-window](https://github.com/bvaughn/react-window) 
 
