@@ -1,8 +1,11 @@
-// import { useState } from "react"
 import { useState, createContext } from "react"
 import ChromeTabs from "./ChromeTabs"
 import QueryContainer from "./QueryContainer"
-const ordersData = require('../data/ordersjson.json')
+
+import '../assets/style.scss'
+
+
+// const ordersData = require('../data/ordersjson.json')
 
 export const ActiveContext = createContext()
 
@@ -13,7 +16,7 @@ function Container() {
     isActive: true,
     title: "User Data",
     editMode: false,
-    tableData: ordersData
+    tableData: []
   }])
 
   const [ activeTabs, setActiveTabs ] = useState(tabsData[0])

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import '../assets/ChromeTabs.scss'
 import { nanoid } from 'nanoid'
 
 import cross from "../assets/cross.svg"
@@ -8,7 +6,6 @@ import plus from "../assets/plus.svg"
 function ChromeTabs({ tabsData, setTabsData, activeTabs }) {
 
   // const [name, setName] = useState([])
-  const [toggle, setToggle] = useState(true)
 
 
   const addTabs = () => {
@@ -60,46 +57,6 @@ function ChromeTabs({ tabsData, setTabsData, activeTabs }) {
             tabsData.map((tab, idx) => {
               return (
                 <div className={`tab ${tab.isActive ? "colorTab" : ""}`} key={`${idx}tabs`}>
-
-                  {/* {
-                    tab.isActive
-                    ? toggle
-                      ? (
-                        <p
-                          onDoubleClick={() => {
-                            setTabsData(tabsData.map((x) => {
-                              if(x.id === tab.id) {
-                                
-                                const a = {...tab, editMode: true}
-                                return a
-                              } else {
-                                
-                                return x
-                              }
-                            }))
-                          }}
-                        >{tab.title}</p>
-                      ) 
-                      : (
-                        <input
-                          type='text'
-                          value={tab.title}
-                          onChange={(e) => {
-                            setName(e, tab)
-                          }}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter' || e.key === 'Escape') {
-                              setToggle(true)
-                              e.preventDefault()
-                              e.stopPropagation()
-                              // setTabsData([...tabsData, { ...tab, title: name }])
-                            }
-                          }}
-                        />
-                      )
-                    : "Nakko"
-                  } */}
-
                   {
                     tab.editMode && tab.isActive 
                     ? (
@@ -163,6 +120,7 @@ function ChromeTabs({ tabsData, setTabsData, activeTabs }) {
                   <img 
                     src={cross}
                     width="10px"  
+                    alt="cross icon"
                   />
                   </span>
                   
@@ -175,6 +133,7 @@ function ChromeTabs({ tabsData, setTabsData, activeTabs }) {
           <img 
             src={plus}
             width="10px"  
+            alt="plus icon"
           />
         </div>
       </div>

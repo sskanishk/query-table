@@ -1,39 +1,29 @@
 
 import { Table } from "react-fluid-table"
 import _ from "lodash"
-import { useEffect, useState } from "react"
-import MultiRangeSlider from "./multiRangeSlider"
-// import * as faker from '@faker-js/faker';
-const { faker } = require('@faker-js/faker')
+import { useState } from "react"
+// import MultiRangeSlider from "./multiRangeSlider"
 
+function FluidTable({ fluidTableData }) {
+  const [ data, setData ] = useState(fluidTableData)
 
-const ordersData = require('../data/ordersjson.json')
-
-function FluidTable({ ordersData }) {
-  const [ data, setData ] = useState(ordersData)
-
-  const headers = Object.keys(ordersData[0])
+  const headers = Object.keys(fluidTableData[0])
   const columns = headers.map((header) => ({ key: header, header: header, sortable: true }))
   const onSort = (col, dir) => {
-    setData(!col || !dir ? ordersData : _.orderBy(data, [col], [dir.toLowerCase()]));
+    setData(!col || !dir ? fluidTableData : _.orderBy(data, [col], [dir.toLowerCase()]));
   }
-  function getMin(data, val) {
-    return data.reduce((min, p) => p[val] < min ? p[val] : min, data[0][val]);
-  }
-  function getMax(data, val) {
-    return data.reduce((max, p) => p[val] > max ? p[val] : max, data[0][val]);
-  }
-
- 
-
-
-  
-  const getSlideResult = ({ min, max }) => {
-    const newData = _.filter(ordersData, o => o.freight > min && o.freight < max) 
-    setData(newData)
-  }
+  // function getMin(data, val) {
+  //   return data.reduce((min, p) => p[val] < min ? p[val] : min, data[0][val]);
+  // }
+  // function getMax(data, val) {
+  //   return data.reduce((max, p) => p[val] > max ? p[val] : max, data[0][val]);
+  // }  
+  // const getSlideResult = ({ min, max }) => {
+  //   const newData = _.filter(fluidTableData, o => o.freight > min && o.freight < max) 
+  //   setData(newData)
+  // }
   const headerStyle = {
-    fontSize: "10px"
+    fontSize: "12px"
   }
   const rowStyle = {
     fontSize: "10px"
@@ -43,14 +33,14 @@ function FluidTable({ ordersData }) {
     <div className="fluid__table__container">
       <div>
       {/* <MultiRangeSlider
-        min={getMin(ordersData, "freight")}
-        max={getMax(ordersData, "freight")}
+        min={getMin(fluidTableData, "freight")}
+        max={getMax(fluidTableData, "freight")}
         onChange={({ min, max }) => getSlideResult({ min, max }) }
       /> */}
       </div>
       
       {
-        ordersData
+        fluidTableData
         ? <Table 
           data={data} 
           columns={columns} 

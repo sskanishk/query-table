@@ -12,26 +12,17 @@ function QueryOutput({ tabsData, setTabsData }) {
       if(o.isActive) {
         return o
       }
+      return null
     }))
-  }, [ActiveTabData])
+  }, [tabsData])
 
   return (
     <div>
-      {/* <FluidTable ordersData={ordersData} /> */}
       {
         currData[0]?.isActive && currData[0]?.tableData?.length > 1
-        ? <FluidTable ordersData={currData[0].tableData} />
+        ? <FluidTable fluidTableData={currData[0].tableData} />
         : <h2>No data</h2>
       }
-      {/* {
-        tabsData.map((o, i) => {
-          if(o.isActive && o.tableData.length > 1) {
-            return <FluidTable ordersData={o.tableData} key={`ft${i}`}/>
-          } else {
-            return 
-          }
-        })
-      } */}
     </div>
   )
 }

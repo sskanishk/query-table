@@ -1,0 +1,109 @@
+.app__container {
+  width: 90%;
+  margin: auto;
+
+  .tabs__container {
+    .tabs__wrapper {
+      display: flex;
+      margin: 10px 0px;
+      background-color: aliceblue;
+
+      .tabs{
+        padding: 5px 0px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: auto;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+
+        .tab {
+          display: flex;
+          margin: 2px 5px;
+          padding: 5px 10px;
+          background-color: white;
+          justify-content: space-between;
+          border-radius: 3px;
+          gap: 20px;
+
+          p{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 120px;
+            margin: 0px;
+            font-size: 14px;
+          }
+
+          .closeTab {
+
+          }
+        }
+        .colorTab {
+          background-color: bisque !important;
+        }
+      }
+      .addtabs {
+        background-color: #e5e7ed;
+        display: flex;
+        margin: 7px 2px;
+        padding: 0px 9px;
+        border-radius: 100px;
+        height: 28px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .box__grooming {
+    -webkit-box-shadow: 3px 3px 4px -2px #6b6b6b3b;
+    -moz-box-shadow: 3px 3px 4px -2px #6b6b6b3b;
+    box-shadow: 3px 3px 4px -2px #6b6b6b3b;
+    background-color: white;
+    padding: 10px 20px;
+    margin: 10px 0px;
+    border-radius: 5px;
+
+  }
+  .query__wrapper {
+    .query__search {
+      width: 60%;
+      margin: 10px 0px;
+
+      textarea {
+        width: 100%;
+        background-color: #e5e7ed;
+        border: none;
+        border-radius: 5px;
+        height: 80px;
+        padding: 8px;
+        resize: vertical;
+        font-weight: 500;
+        font-family: sans-serif;
+        &:focus-visible {
+          outline: none
+        }
+
+      }
+      button {
+        background-color: #625ed7;
+        color: white;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 3px;
+        font-weight: 600;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .fluid__table__container {
+
+  }
+}

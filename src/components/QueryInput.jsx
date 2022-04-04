@@ -7,9 +7,12 @@ function QueryInput({ tabsData, setTabsData }) {
   const getQueryResult = async (e) => {
     e.preventDefault()
     setIsLoading(true)
-    const response = await axios.get('/b/MXR3')
+    // const response = await axios.get('https://jsonkeeper.com/b/MXR3')
+    const response = await axios.get('https://raw.githubusercontent.com/sskanishk/query-table/master/db.json')
+    // const response = await axios.get('/b/MXR3')
+    console.log(response)
     if(response.status === 200) {
-      const data = response.data
+      const data = response.data.data
       setIsLoading(false)
       let newTabData = tabsData.map((tab) => {
         if(tab.isActive) {
@@ -26,10 +29,11 @@ function QueryInput({ tabsData, setTabsData }) {
       <div className="query__wrapper box__grooming">
         <div>
           {
-            tabsData.map((tab) => {
+            tabsData.map((tab, id) => {
               if(tab.isActive){
-                return <h4>{tab.title}</h4>
+                return <h4 key={`h4${id}`}>{tab.title}</h4>
               }
+              return null
             })
           }
         </div>
