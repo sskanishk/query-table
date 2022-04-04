@@ -1,16 +1,20 @@
 
 import { Table } from "react-fluid-table"
 import _ from "lodash"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 // import MultiRangeSlider from "./multiRangeSlider"
 
 function FluidTable({ fluidTableData }) {
   const [ data, setData ] = useState(fluidTableData)
 
+  useEffect(() => {
+    setData(_.orderBy(data, ["freight"], ["asc"]));
+  }, [fluidTableData])
+
   const headers = Object.keys(fluidTableData[0])
   const columns = headers.map((header) => ({ key: header, header: header, sortable: true }))
   const onSort = (col, dir) => {
-    setData(!col || !dir ? fluidTableData : _.orderBy(data, [col], [dir.toLowerCase()]));
+    setData(!col || !dir ? data : _.orderBy(data, [col], [dir.toLowerCase()]));
   }
   // function getMin(data, val) {
   //   return data.reduce((min, p) => p[val] < min ? p[val] : min, data[0][val]);
@@ -48,6 +52,8 @@ function FluidTable({ fluidTableData }) {
           headerStyle= {headerStyle}
           rowStyle={rowStyle}
           onSort={onSort}
+          sortColumn="freight"
+          sortDirection="ASC"
         />
         : <h2>Hello Data</h2>
       }
